@@ -15,7 +15,7 @@ public class SceneTest : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
-            SceneManager.LoadScene("Testing Area 2");
+            SceneManager.LoadScene("Painting1");
         }
     }
 }
