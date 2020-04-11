@@ -19,7 +19,7 @@ public class CharacterMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal") * MovementSpeed;
         float vertical = Input.GetAxis("Vertical") * MovementSpeed;
-        characterController.Move((Vector3.right*horizontal + Vector3.forward*vertical)*Time.deltaTime);
+        characterController.Move((this.transform.right*horizontal + this.transform.forward*vertical)*Time.deltaTime);
 
         if(characterController.isGrounded){
             velocity = 0;
