@@ -10,6 +10,9 @@ public class HoldMoveScript : MonoBehaviour
      * glowy: https://www.youtube.com/watch?v=WiDVoj5VQ4c
      */
 
+    AudioSource audioS;
+    public float startingPitch = 1f;
+    private float pitchInc = 0f;
 
     private Vector3 mousePos;
     private Vector2 direction;
@@ -20,6 +23,10 @@ public class HoldMoveScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioS = GetComponent<AudioSource>();
+
+        //Initialize the pitch
+        audioS.pitch = startingPitch;
     }
 
     //if only one 2D player gameobject is being used, separate movement code into function and arrange by bool according to scene
@@ -41,6 +48,7 @@ public class HoldMoveScript : MonoBehaviour
             //code the object to drift
             rb.velocity = Vector2.zero;
         }
+
     }
 
     //might not be needed
@@ -51,5 +59,21 @@ public class HoldMoveScript : MonoBehaviour
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         //rotation on the z-axis
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("chime")) {
+            //play audio clip
+            audioS.Play();
+            Debug.Log("bang the chime");
+
+            //each time the chime is hit, increase pitch
+
+            //ISSUE: its not connected to the audio component or something cos the pitch isnt changing, 
+            //starting pitch changes if u change it in the float, the increment doesn't
+            pitchInc = pitchInc + 0.2f;
+            startingPitch = startingPitch + pitchInc;
+        }
     }
 }
