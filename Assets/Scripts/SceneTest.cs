@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTest : MonoBehaviour
 {
+    //this script is for the botanical room transition
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class SceneTest : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
-            SceneManager.LoadScene("Painting1");
+            SceneManager.LoadScene("Biotanical");
         }
     }
 }
