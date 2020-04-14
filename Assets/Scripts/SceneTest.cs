@@ -16,7 +16,7 @@ public class SceneTest : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
-            SceneManager.LoadScene("Salvador Dali");
+            SceneManager.LoadScene("Salvador Dahli");
         }
     }
 }
