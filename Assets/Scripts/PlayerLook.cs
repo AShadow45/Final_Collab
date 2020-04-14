@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerLook : MonoBehaviour
 {
-    //this is for player movement
-
     // Start is called before the first frame update
     void Start()
     {
