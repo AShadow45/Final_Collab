@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTest : MonoBehaviour
 {
-    //this script is for the botanical room transition
+    //this script is for the Dali transition
     // Start is called before the first frame update
     void Start()
     {
