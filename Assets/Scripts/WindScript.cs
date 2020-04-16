@@ -21,14 +21,6 @@ public class WindScript : MonoBehaviour
         //loop wind across screen
         //transform.position.x < -10.0f
         rb.velocity = -transform.right * moveAmount;
-
-        //wind control to imitate crouching
-        if (Input.GetKey(KeyCode.A))
-        {
-            ae2D.forceMagnitude = -2;
-        }else {
-            ae2D.forceMagnitude = -6;
-        }
     }
 
 
