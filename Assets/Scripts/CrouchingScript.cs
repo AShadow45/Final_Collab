@@ -19,19 +19,15 @@ public class CrouchingScript : MonoBehaviour
     //Affect WindScript Area Effector Comp.
     void Update()
     {
+
+        //wind control to imitate crouching
         if (Input.GetKey(KeyCode.A))
-        {  
-            Debug.Log("A is on");
-            //windS.ae2D.forceMagnitude = 1;
-
-            //rb.isKinematic = true;
-
+        {
+            windS.ae2D.forceMagnitude = -2;
         }
-        else {
-            
-            Debug.Log("A is off");
-
-            //rb.isKinematic = false;
+        else
+        {
+            windS.ae2D.forceMagnitude = -6;
         }
     }
 }
