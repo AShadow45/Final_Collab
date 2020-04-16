@@ -11,8 +11,7 @@ public class HoldMoveScript : MonoBehaviour
      */
 
     AudioSource audioS;
-    public float startingPitch = 1f;
-    private float pitchInc = 0f;
+    public AudioClip[] audioClips;
 
     private Vector3 mousePos;
     private Vector2 direction;
@@ -20,39 +19,38 @@ public class HoldMoveScript : MonoBehaviour
 
     public float moveSpeed;
 
+    public bool gameIsPaused;
+
+    public GameObject endDialogue;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         audioS = GetComponent<AudioSource>();
 
-        //Initialize the pitch
-        audioS.pitch = startingPitch;
+        //toggling movement and lookat function on and off after dialogue array has been reached
+        gameIsPaused = true;
     }
 
     //if only one 2D player gameobject is being used, separate movement code into function and arrange by bool according to scene
     void Update()
     {
-        //direction towards mouse
-        LookAtMouse();
-
-        //if mouse is being held down
-        if (Input.GetMouseButton(0))
+        //if game is not paused (DialogueScript)
+        if (!gameIsPaused)
         {
-            //object moves towards cursor
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            direction = (mousePos - transform.position).normalized;
-            rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
+            //direction towards mouse
+            LookAtMouse();
 
-        }else {
-            //object doesn't move
-            //code the object to drift
-            rb.velocity = Vector2.zero;
+            //move function
+            HoldMove();
+        } else {
+            gameIsPaused = true;
         }
 
     }
 
-    //might not be needed
     void LookAtMouse() {
+
         //get the vector between the mouse and the object
         var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         //calculate the angle and convert into degrees
@@ -61,19 +59,37 @@ public class HoldMoveScript : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
+    void HoldMove() {
+        //if mouse is being held down
+        if (Input.GetMouseButton(0))
+        {
+            //object moves towards cursor
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            direction = (mousePos - transform.position).normalized;
+            rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
+
+        }
+        else
+        {
+            //object doesn't move
+            //code the object to drift
+            rb.velocity = Vector2.zero;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("chime")) {
-            //play audio clip
-            audioS.Play();
+            //play random audio clip
+            PlayRandom();
             Debug.Log("bang the chime");
 
-            //each time the chime is hit, increase pitch
-
-            //ISSUE: its not connected to the audio component or something cos the pitch isnt changing, 
-            //starting pitch changes if u change it in the float, the increment doesn't
-            pitchInc = pitchInc + 0.2f;
-            startingPitch = startingPitch + pitchInc;
         }
+    }
+
+    void PlayRandom()
+    {
+        audioS.clip = audioClips[Random.Range(0, audioClips.Length)];
+        audioS.Play();
     }
 }

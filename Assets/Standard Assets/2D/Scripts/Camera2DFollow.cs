@@ -16,6 +16,15 @@ namespace UnityStandardAssets._2D
         private Vector3 m_CurrentVelocity;
         private Vector3 m_LookAheadPos;
 
+        [SerializeField]
+        float leftLimit;
+        [SerializeField]
+        float rightLimit;
+        [SerializeField]
+        float topLimit;
+        [SerializeField]
+        float bottomLimit;
+
         // Use this for initialization
         private void Start()
         {
@@ -48,6 +57,13 @@ namespace UnityStandardAssets._2D
             transform.position = newPos;
 
             m_LastTargetPosition = target.position;
+
+
+            transform.position = new Vector3(
+                Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+                Mathf.Clamp(transform.position.y, bottomLimit, topLimit),
+                transform.position.z
+            );
         }
     }
 }
