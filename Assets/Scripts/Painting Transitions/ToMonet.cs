@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTest : MonoBehaviour
+public class ToMonet : MonoBehaviour
 {
-    //this script is for the Dali transition
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +15,8 @@ public class SceneTest : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
-            SceneManager.LoadScene("Salvador Dahli");
-            DontDestroyOnLoad(other.gameObject);
+            SceneManager.LoadScene("Biotanical");
         }
+        
     }
 }
