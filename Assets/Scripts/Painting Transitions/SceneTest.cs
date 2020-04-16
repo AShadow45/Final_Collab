@@ -17,6 +17,7 @@ public class SceneTest : MonoBehaviour
     {
         if(other.tag == "Player"){
             SceneManager.LoadScene("Salvador Dahli");
+            DontDestroyOnLoad(other.gameObject);
         }
     }
 }
