@@ -25,6 +25,8 @@ public class HoldMoveScript : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true;
+
         rb = GetComponent<Rigidbody2D>();
         audioS = GetComponent<AudioSource>();
 

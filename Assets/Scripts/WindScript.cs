@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WindScript : MonoBehaviour
 {
+    public Transform spawnPoint;
+
     Rigidbody2D rb;
     public AreaEffector2D ae2D;
     public float moveAmount = 3f;
@@ -21,8 +23,16 @@ public class WindScript : MonoBehaviour
         //loop wind across screen
         //transform.position.x < -10.0f
         rb.velocity = -transform.right * moveAmount;
+
+        //when player has reached the end, stop the function
+        LoopWind();
     }
 
-
+    void LoopWind() {
+        if (transform.position.x < -10f)
+        {
+            transform.position = spawnPoint.transform.position;
+        }
+    }
 
 }
