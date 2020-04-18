@@ -18,6 +18,8 @@ public class EndDialogueScript : MonoBehaviour
 
     public Collider2D barrier;
 
+    public GameObject barrierAnim;
+
 
     IEnumerator Type()
     {
@@ -26,14 +28,14 @@ public class EndDialogueScript : MonoBehaviour
         {
             textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
-
+            
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
@@ -49,8 +51,8 @@ public class EndDialogueScript : MonoBehaviour
             //open the barrier
             barrier.GetComponent<Collider2D>().enabled = false;
             textImage.SetActive(false);
-            //particle end
-            Debug.Log("End of the Array");
+            //particle fade
+            barrierAnim.SetActive(false);
         }
 
     }

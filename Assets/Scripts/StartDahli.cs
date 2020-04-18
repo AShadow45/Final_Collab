@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class StartDialogueScript : MonoBehaviour
+
+public class StartDahli : MonoBehaviour
 {
-    //movement script
-    public HoldMoveScript hmS;
+    public CrouchingScript crouchingS;
+    public WindScript windScript;
 
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
@@ -14,9 +15,15 @@ public class StartDialogueScript : MonoBehaviour
 
     public GameObject continueButton;
 
-    IEnumerator Type() {
+    public GameObject dialogueBlock;
 
-        foreach(char letter in sentences[index].ToCharArray()) {
+    
+
+    IEnumerator Type()
+    {
+
+        foreach (char letter in sentences[index].ToCharArray())
+        {
             textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
 
@@ -26,26 +33,31 @@ public class StartDialogueScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Type());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (textDisplay.text == sentences[index]) {
+        if (textDisplay.text == sentences[index])
+        {
             continueButton.SetActive(true);
         }
 
         //toggling movement and lookat function on and off after dialogue array has been reached
-        
-        if (index == sentences.Length - 1){
-            hmS.gameIsPaused = false;
-            Debug.Log("End of the Array");
+
+        if (index == sentences.Length - 1)
+        {
+            
+            dialogueBlock.SetActive(false);
+            windScript.windIsStart = true;
+            //Debug.Log("End of the Array");
         }
-        
+
     }
 
-    public void NextSentence() {
+    public void NextSentence()
+    {
         continueButton.SetActive(false);
 
         if (index < sentences.Length - 1)
@@ -53,9 +65,21 @@ public class StartDialogueScript : MonoBehaviour
             index++;
             textDisplay.text = "";
             StartCoroutine(Type());
-        } else {
+        }
+        else
+        {
             textDisplay.text = "";
             continueButton.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player")) {
+            this.GetComponent<Collider2D>().enabled = false;
+            StartCoroutine(Type());
+
+            dialogueBlock.SetActive(true);
         }
     }
 }

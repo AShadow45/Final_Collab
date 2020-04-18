@@ -6,6 +6,9 @@ public class CrouchingScript : MonoBehaviour
 {
     //access AreaEffector2D components
     public WindScript windS;
+    public StartDahli startDahli;
+
+    Animator anim;
 
     public float moveSpeed;
 
@@ -14,34 +17,59 @@ public class CrouchingScript : MonoBehaviour
     public float windFastSpeed;
 
     private Rigidbody2D rb;
-    
+
+    public bool skullIsTalking;
+    public bool windIsFade;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
+        //player is mving from the start
+        skullIsTalking = false;
     }
-
-
 
     //Affect WindScript Area Effector Comp.
     void Update()
     {
         Vector3 pos = transform.position;
+    
+            //wind control to imitate crouching
+            if (Input.GetKey(KeyCode.A))
+            {
+                windS.ae2D.forceMagnitude = windSlowSpeed;
+                anim.SetTrigger("Crouching");
+            }
+            else
+            {
+                windS.ae2D.forceMagnitude = windSpeed;
+                //anim.SetTrigger("Idle");
+            }
 
-        //wind control to imitate crouching
-        if (Input.GetKey(KeyCode.A))
+        //moving controls
+        if (Input.GetKey(KeyCode.D))
         {
-            windS.ae2D.forceMagnitude = windSlowSpeed;
+            windS.ae2D.forceMagnitude = windFastSpeed;
+            Debug.Log("Pressing D");
+            anim.SetTrigger("Walking");
+            rb.velocity = new Vector2(1 * moveSpeed, 0);
+
         }
         else
         {
-            windS.ae2D.forceMagnitude = windSpeed;
+            anim.SetTrigger("Idle");
         }
 
-        //walk forward
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.velocity = new Vector2(1 * moveSpeed, 0);
-            windS.ae2D.forceMagnitude = windFastSpeed;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("endtrigger")) {
+            Debug.Log("Collided with End");
+            windIsFade = true;
+            //the wind has stopped
         }
     }
 }
