@@ -8,6 +8,7 @@ TagManager:
   - chime
   - endtrigger
   - wind
+  - Artifact
   layers:
   - Default
   - TransparentFX
