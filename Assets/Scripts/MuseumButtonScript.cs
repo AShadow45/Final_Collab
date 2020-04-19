@@ -6,19 +6,18 @@ using UnityEngine.SceneManagement;
 public class MuseumButtonScript : MonoBehaviour
 {
     public GameObject whiteFade;
-    public bool objectGet = false;
-   // public GameObject whiteLight;
-    //public GameObject greenLight;
+    public PlayerData playerData;
+
 
     public void LoadMuseum() {
         SceneManager.LoadScene("Museum");
-       // whiteLight.SetActive(false);
-       // greenLight.SetActive(true);
+
     }
 
     private void Start()
     {
         whiteFade.SetActive(false);
+        PlayerData playerData = gameObject.GetComponent<PlayerData>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +25,7 @@ public class MuseumButtonScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) {
             StartCoroutine(WaitSecToMuseum());
             whiteFade.SetActive(true);
-            objectGet = true;
+            playerData.foundMonet = true;
             //specify location in front of painting
         }
     }

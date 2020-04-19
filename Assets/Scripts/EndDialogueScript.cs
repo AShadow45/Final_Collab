@@ -21,6 +21,7 @@ public class EndDialogueScript : MonoBehaviour
     public GameObject barrierAnim;
 
 
+
     IEnumerator Type()
     {
 
