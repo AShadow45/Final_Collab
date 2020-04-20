@@ -58,5 +58,4 @@ public class StartDialogueScript : MonoBehaviour
             continueButton.SetActive(false);
         }
     }
-
 }

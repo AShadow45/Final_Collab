@@ -9,8 +9,15 @@ public class IsometricMoveScript : MonoBehaviour
 
     Vector3 forward, right;
 
+    //detecting corners
+    public bool playerIsCorner1;
+    public bool playerIsCorner2;
+    public bool playerIsCorner3;
+    public bool playerIsCorner4;
+
     void Start()
     {
+
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
@@ -37,5 +44,46 @@ public class IsometricMoveScript : MonoBehaviour
         transform.up = heading;
         transform.position += rightMovement;
         transform.position += upMovement;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("1")) {
+            Debug.Log("player is in 1");
+            playerIsCorner1 = true;
+
+            playerIsCorner2 = false;
+            playerIsCorner3 = false;
+            playerIsCorner4 = false;
+
+
+        } 
+
+        if (other.gameObject.CompareTag("2")) {
+            Debug.Log("player is in 2");
+            playerIsCorner2 = true;
+
+            playerIsCorner1 = false;
+            playerIsCorner3 = false;
+            playerIsCorner4 = false;
+        }
+
+        if (other.gameObject.CompareTag("3")) {
+            Debug.Log("player is in 3");
+            playerIsCorner3 = true;
+
+            playerIsCorner2 = false;
+            playerIsCorner1 = false;
+            playerIsCorner4 = false;
+        }
+
+        if (other.gameObject.CompareTag("4")) {
+            Debug.Log("player is in 4");
+            playerIsCorner4 = true;
+
+            playerIsCorner2 = false;
+            playerIsCorner3 = false;
+            playerIsCorner1 = false;
+        }
     }
 }

@@ -9,6 +9,13 @@ public class PlayerMove3D : MonoBehaviour
     public float speed = 12f;
     // Start is called before the first frame update
     // Update is called once per frame
+
+    private void Awake()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     void Update()
     {
         float x = Input.GetAxis("Horizontal");

@@ -23,8 +23,14 @@ public class HoldMoveScript : MonoBehaviour
 
     public GameObject endDialogue;
 
+    private void Awake()
+    {
+        Cursor.visible = true;
+    }
+
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
         audioS = GetComponent<AudioSource>();
 
