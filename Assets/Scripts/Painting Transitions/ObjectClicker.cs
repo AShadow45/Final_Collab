@@ -14,9 +14,16 @@ public class ObjectClicker : MonoBehaviour
     public GameObject plaqueEscher;
     public GameObject plaqueSaul;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     // Update is called once per frame
     void Update()
     {
+
         //bitmap of layers
         int monet = 1 << 9;
         int dahli = 1 << 10;
@@ -39,6 +46,10 @@ public class ObjectClicker : MonoBehaviour
                     if (Input.GetMouseButton(0)) {
                         //UI Plaque activated
                         plaqueMonet.SetActive(true);
+
+                        //show cursor
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
                     }
                 }
 
@@ -57,6 +68,9 @@ public class ObjectClicker : MonoBehaviour
                     if (Input.GetMouseButton(0)) {
                         //UI Plaque activated
                         plaqueDahli.SetActive(true);
+
+                        //show cursor
+                        Cursor.lockState = CursorLockMode.None;
                     }
                 }
 
@@ -75,6 +89,9 @@ public class ObjectClicker : MonoBehaviour
                     if (Input.GetMouseButton(0)) {
                         //UI Plaque activated
                         plaqueEscher.SetActive(true);
+
+                        //show cursor
+                        Cursor.lockState = CursorLockMode.None;
                     }
                 }
 
@@ -93,6 +110,9 @@ public class ObjectClicker : MonoBehaviour
                     if (Input.GetMouseButton(0)) {
                         //UI Plaque activated
                         plaqueSaul.SetActive(true);
+
+                        //show cursor
+                        Cursor.lockState = CursorLockMode.None;
                     }
                 }
 
@@ -108,17 +128,25 @@ public class ObjectClicker : MonoBehaviour
 
     public void CloseMonet() {
         plaqueMonet.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void CloseDahli() {
         plaqueDahli.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void CloseEscher() {
         plaqueEscher.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void CloseSaul() {
         plaqueSaul.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
