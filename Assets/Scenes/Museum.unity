@@ -4609,12 +4609,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1223890886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dbc5d880b28c4d05a65919ca118d60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dea7e8abb8f543aa98fdb9d24b30808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteLight: {fileID: 208598843}
-  greenLight: {fileID: 2049163514}
-  MuseumButton: {fileID: 0}
+  foundMonet: 0
+  foundSaul: 0
+  MonetWhite: {fileID: 208598843}
+  MonetGreen: {fileID: 2049163514}
 --- !u!1 &1313530761
 GameObject:
   m_ObjectHideFlags: 0
