@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MuseumButtonScript : MonoBehaviour
-{
+{  
     public GameObject whiteFade;
     public GameObject gameManager;
 
