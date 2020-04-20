@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-  //tracks what player has found so far
-   public bool foundMonet = false;
-   public bool foundSaul = false;
 
-   public GameObject MonetWhite;
-   public GameObject MonetGreen;
+    public ThingsFound thingsFound ;
 
+ 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //took thingsfound from GlobalControl and stores locally
+        thingsFound = GlobalControl.Instance.thingsFound;
+        if(thingsFound == null){
+             Debug.Log("Dun gufed");
+        }else{
+            Debug.Log("Safe");  
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(foundMonet == true){
-          MonetGreen.gameObject.SetActive(true);
-          MonetWhite.gameObject.SetActive(false);
-        }
+//between scene transitions, save any info changed to global so next scene can pull
+    public void SavetoGlobal(){
+        GlobalControl.Instance.thingsFound = thingsFound;
     }
 }

@@ -6,31 +6,35 @@ using UnityEngine.SceneManagement;
 public class MuseumButtonScript : MonoBehaviour
 {
     public GameObject whiteFade;
-    public PlayerData playerData;
+    public GameObject gameManager;
 
-
+  
     public void LoadMuseum() {
         SceneManager.LoadScene("Museum");
-
+        
     }
 
     private void Start()
     {
         whiteFade.SetActive(false);
-        PlayerData playerData = gameObject.GetComponent<PlayerData>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) {
+            //We found it...yay
+           gameManager.GetComponent<GameManagerMonet>().found();
             StartCoroutine(WaitSecToMuseum());
             whiteFade.SetActive(true);
-            playerData.foundMonet = true;
+
             //specify location in front of painting
         }
     }
 
     IEnumerator WaitSecToMuseum() {
+            //saving to global so it doesn't get destroyed with scene
+        gameManager.GetComponent<GameManagerMonet>().saveData();
         yield return new WaitForSeconds(3f);
         LoadMuseum();
         

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTest : MonoBehaviour
+public class ToDali : MonoBehaviour
 {
-    //this script is for the Dali transition
+    public GameObject gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +16,11 @@ public class SceneTest : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
-            SceneManager.LoadScene("Salvador Dahli");
+             //will save state to global before scene transition
+             gameManager.GetComponent<PlayerData>().SavetoGlobal();
+            //player stays in place in museum
             DontDestroyOnLoad(other.gameObject);
+            SceneManager.LoadScene("Salvador Dahli");
         }
     }
 }
