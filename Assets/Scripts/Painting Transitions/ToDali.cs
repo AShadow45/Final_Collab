@@ -20,7 +20,9 @@ public class ToDali : MonoBehaviour
             //gameManager.GetComponent<PlayerData>().SavetoGlobal();
             //player stays in place in museum
             //DontDestroyOnLoad(other.gameObject);
+
             SceneManager.LoadScene("Salvador Dahli");
+
         }
     }
 }

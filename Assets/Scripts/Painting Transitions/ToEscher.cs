@@ -16,7 +16,8 @@ public class ToEscher : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
-            SceneManager.LoadScene("MC Escher");
+
+            SceneManager.LoadScene("MC Escher2");
         }
         
     }

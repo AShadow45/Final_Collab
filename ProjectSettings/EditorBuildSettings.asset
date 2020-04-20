@@ -20,9 +20,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Testing Area 2.unity
     guid: 8b4682c87371641be955c05129bf1722
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Paintings/MC Escher.unity
     guid: 6cdd1a551fb371e47aee48769ae5dc3d
+  - enabled: 1
+    path: Assets/Scenes/Paintings/MC Escher2.unity
+    guid: b96df94912a1e7443b8cb442e4f97dcc
   - enabled: 1
     path: Assets/Scenes/Paintings/Peter Saul.unity
     guid: b081a3e5de4234290aba45d692720715
