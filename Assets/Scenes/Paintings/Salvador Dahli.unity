@@ -283,7 +283,7 @@ MonoBehaviour:
   - How long will you continue to trudge against these relentless winds?
   - Across this barren land with no end but my humble self?
   - Although the journey may seem futile
-  - '- I assure you that when you do reach the end, you will find what you seek.'
+  - '- I assure you that when you do reach the end, you will find what you desire.'
   typingSpeed: 0.03
   continueButton: {fileID: 570702401}
   dialogueBlock: {fileID: 1334115441}
@@ -6221,7 +6221,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 50e30145645f9a442b38a3a4eec6007b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7118,7 +7118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152444700}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.25, y: 6.323842, z: 42.344734}
+  m_LocalPosition: {x: 53.2507, y: 6.3376, z: 42.344734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 246556663}
@@ -7148,7 +7148,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 38.399998, y: 3.6922417}
+  m_Size: {x: 38.399998, y: 3.65}
   m_EdgeRadius: 0
 --- !u!212 &1152444703
 SpriteRenderer:
@@ -7234,7 +7234,7 @@ MonoBehaviour:
   textDisplay: {fileID: 1656835992}
   sentences:
   - 'Hah! You''ve made it! '
-  - I never doubted you for that matter.
+  - What a pleasant surprise! Of course, I never doubted you for that matter.
   - Past my humble self is what you were searching for...
   - I am sure you have good use for it.
   typingSpeed: 0.03
