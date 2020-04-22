@@ -30,6 +30,8 @@ public class HoldMoveScript : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         rb = GetComponent<Rigidbody2D>();
         audioS = GetComponent<AudioSource>();
