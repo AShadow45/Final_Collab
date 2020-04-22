@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MuseumButtonScript : MonoBehaviour
 {  
     public GameObject whiteFade;
-    public GameObject gameManager;
+    //public GameObject gameManager;
 
   
     public void LoadMuseum() {
@@ -24,7 +24,7 @@ public class MuseumButtonScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) {
             //We found it...yay
-           gameManager.GetComponent<GameManagerMonet>().found();
+           //gameManager.GetComponent<GameManagerMonet>().found();
             StartCoroutine(WaitSecToMuseum());
             whiteFade.SetActive(true);
 
@@ -34,7 +34,7 @@ public class MuseumButtonScript : MonoBehaviour
 
     IEnumerator WaitSecToMuseum() {
             //saving to global so it doesn't get destroyed with scene
-        gameManager.GetComponent<GameManagerMonet>().saveData();
+        //gameManager.GetComponent<GameManagerMonet>().saveData();
         yield return new WaitForSeconds(3f);
         LoadMuseum();
         

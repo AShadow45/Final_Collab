@@ -20615,7 +20615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &642991729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30358,7 +30358,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whiteFade: {fileID: 1019755234}
-  gameManager: {fileID: 1151552432}
 --- !u!1001 &1048272016
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -21,14 +21,15 @@ public class CrouchingScript : MonoBehaviour
     public bool skullIsTalking;
     public bool windIsFade;
 
-    private AudioSource playerAud;
-    public AudioClip flapSound;
+    public AudioSource playerFoot;
+
+    public AudioClip[] clips;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        playerAud = GetComponent<AudioSource>();
+        playerFoot = GetComponent<AudioSource>();
 
         //player is mving from the start
         skullIsTalking = false;
@@ -67,6 +68,11 @@ public class CrouchingScript : MonoBehaviour
 
     }
 
+    public void Step() {
+        playerFoot.clip = clips[Random.Range(0, clips.Length)];
+        playerFoot.Play();
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("endtrigger")) {
@@ -76,20 +82,5 @@ public class CrouchingScript : MonoBehaviour
             windIsFade = true;
         }
 
-        if (collision.gameObject.CompareTag("wind"))
-        {
-            //play flapping sound
-            playerAud.clip = flapSound;
-            playerAud.Play();
-        }
-    }
-
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("wind"))
-        {
-            playerAud.Stop();
-
-        }
     }
 }

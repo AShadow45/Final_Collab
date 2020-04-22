@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class DaliToMuseum : MonoBehaviour
 {
-      public GameObject whiteFade;
-    public GameObject gameManager;
+    public GameObject whiteFade;
+    //public GameObject gameManager;
 
   
     public void LoadMuseum() {
@@ -24,7 +24,7 @@ public class DaliToMuseum : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) {
             //We found it...yay
-           gameManager.GetComponent<GameManagerDali>().found();
+           //gameManager.GetComponent<GameManagerDali>().found();
             StartCoroutine(WaitSecToMuseum());
             whiteFade.SetActive(true);
 
@@ -34,7 +34,7 @@ public class DaliToMuseum : MonoBehaviour
 
     IEnumerator WaitSecToMuseum() {
             //saving to global so it doesn't get destroyed with scene
-        gameManager.GetComponent<GameManagerDali>().saveData();
+        //gameManager.GetComponent<GameManagerDali>().saveData();
         yield return new WaitForSeconds(3f);
         LoadMuseum();
         
