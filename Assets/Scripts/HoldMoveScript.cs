@@ -67,6 +67,10 @@ public class HoldMoveScript : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
+    public void Splash() {
+
+    }
+
     void HoldMove() {
         //if mouse is being held down
         if (Input.GetMouseButton(0))
