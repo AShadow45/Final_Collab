@@ -266,6 +266,7 @@ MonoBehaviour:
   speed: 10
   jumpForce: 1
   moveInput: 0
+  isGrounded: 0
   groundCheck: {fileID: 1710789850}
   checkRadius: 0
   whatIsGround:
@@ -631,7 +632,7 @@ GameObject:
   - component: {fileID: 1710789848}
   m_Layer: 0
   m_Name: New Sprite
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

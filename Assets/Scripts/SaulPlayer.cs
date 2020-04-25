@@ -13,11 +13,7 @@ public class saulPlayer : MonoBehaviour
 
     public float moveInput;
 
-    private bool isGrounded;
-    public Transform groundCheck;
-
-    public float checkRadius;
-    public LayerMask whatIsGround;
+    public bool isGrounded;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +25,21 @@ public class saulPlayer : MonoBehaviour
     {
         moveInput = Input.GetAxis("Horizontal");
         moveVelocity = new Vector2(moveInput * speed, rb2D.velocity.y);
-        if(Input.GetKeyDown(KeyCode.Space)){
-            rb2D.velocity = Vector2.up * jumpForce;
+        if(Input.GetButtonDown("Jump") && isGrounded){
+            rb2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            isGrounded = false;
         }
     }
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         rb2D.MovePosition(rb2D.position + moveVelocity * Time.fixedDeltaTime);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Ground"){
+            isGrounded = true;
+        }
     }
 }
