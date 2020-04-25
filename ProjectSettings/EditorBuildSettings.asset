@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Paintings/Salvador Dahli.unity
     guid: 0bb21be894678aa4bbe353f7edb055e4
   - enabled: 0
-    path: Assets/Scenes/Testing Area.unity
+    path: Assets/Scenes/Tutorial.unity
     guid: 64f975dd2669b594698b730f939c3143
   - enabled: 0
-    path: Assets/Scenes/Testing Area 2.unity
+    path: Assets/Scenes/Win.unity
     guid: 8b4682c87371641be955c05129bf1722
   - enabled: 0
     path: Assets/Scenes/Paintings/MC Escher (Copy).unity
