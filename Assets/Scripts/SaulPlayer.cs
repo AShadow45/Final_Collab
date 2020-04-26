@@ -2,36 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class saulPlayer : MonoBehaviour
-{
-    public float speed;
+public class SaulPlayer : MonoBehaviour {
+public float moveSpeed;
 
-    private Rigidbody2D rb2D;
-    private Vector2 moveVelocity;
+public bool isGrounded = false;
 
-    public float moveInput;
-
+public float jumpForce;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        //movement
-        moveInput = Input.GetAxis("Horizontal");
-        moveVelocity = new Vector2(moveInput * speed, rb2D.velocity.y);
+        Jump();
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        transform.position += movement * Time.deltaTime * moveSpeed;
     }
 
-    void FixedUpdate()
-    {
-        rb2D.MovePosition(rb2D.position + moveVelocity * Time.fixedDeltaTime);
+    void Jump(){
+        if(Input.GetButtonDown("Jump") && isGrounded == true){
+        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        isGrounded = false;
+        }
     }
 }
-
- 
-
