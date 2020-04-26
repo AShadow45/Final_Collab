@@ -30,7 +30,7 @@ public class PlayerMove3D : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.anyKey)
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             //play sound
             anim.SetTrigger("Walking");

@@ -14,11 +14,9 @@ public class EndDialogueScript : MonoBehaviour
     public float typingSpeed;
 
     public GameObject continueButton;
-    public GameObject textImage;
+    //public GameObject textImage;
 
-    public Collider2D barrier;
-
-    public GameObject barrierAnim;
+    public GameObject barrier;
 
 
 
@@ -49,11 +47,9 @@ public class EndDialogueScript : MonoBehaviour
 
         if (index == sentences.Length - 1)
         {
+            //textImage.SetActive(false);
             //open the barrier
-            barrier.GetComponent<Collider2D>().enabled = false;
-            textImage.SetActive(false);
-            //particle fade
-            barrierAnim.SetActive(false);
+            barrier.SetActive(false);
         }
 
     }
@@ -81,7 +77,7 @@ public class EndDialogueScript : MonoBehaviour
         {
             hmS.gameIsPaused = true;
             GetComponent<Collider2D>().enabled = false;
-            textImage.SetActive(true);
+            //textImage.SetActive(true);
             StartCoroutine(Type());
         }
     }
