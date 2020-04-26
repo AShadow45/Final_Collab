@@ -37,7 +37,29 @@ public class BotanicalIndestructableScript : MonoBehaviour
             sceneNumber = 1;
 
             prevScene = sceneNumber;
-            //how do we connect sceneNum is back to prevScene
+        }        
+        
+        //if the player is in botanical scene, sceneNum is 2
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Salvador Dahli")) {
+            sceneNumber = 2;
+
+            prevScene = sceneNumber;
+        }        
+        
+        //if the player is in botanical scene, sceneNum is 3
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MC Escher2")) {
+            sceneNumber = 3;
+
+            prevScene = sceneNumber;
+        }        
+        
+        //if the player is in botanical scene, sceneNum is 4
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Peter Saul")) {
+            sceneNumber = 4;
+
+            prevScene = sceneNumber;
         }
+
+
     }
 }
