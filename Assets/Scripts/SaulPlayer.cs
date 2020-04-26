@@ -11,7 +11,7 @@ public class saulPlayer : MonoBehaviour
 
     public float moveInput;
 
-    public bool isGrounded;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +21,8 @@ public class saulPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        //movement
         moveInput = Input.GetAxis("Horizontal");
         moveVelocity = new Vector2(moveInput * speed, rb2D.velocity.y);
     }

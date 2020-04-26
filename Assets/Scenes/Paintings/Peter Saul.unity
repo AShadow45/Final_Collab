@@ -164,6 +164,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &199311682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 199311683}
+  m_Layer: 0
+  m_Name: feetPos
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &199311683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199311682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 466028981}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &272818455
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,9 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 2.1
   moveInput: 0
-  isGrounded: 0
 --- !u!114 &466028980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d92e118896494a508f4c1050a8066d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 2.6
+  jumpVelocity: 1
 --- !u!4 &466028981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 253969688404181279, guid: e8bb1c818f3a4409dbb2d224c3a81bde,
@@ -311,7 +339,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 466028978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1de30a12e29745c28a34e218814b8e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 957f1ddff408240f6ae241b7c0709872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fallMultiplier: 2.5
@@ -627,7 +655,7 @@ PrefabInstance:
     - target: {fileID: 6812724953803568560, guid: e8bb1c818f3a4409dbb2d224c3a81bde,
         type: 3}
       propertyPath: m_GravityScale
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6812724953803568560, guid: e8bb1c818f3a4409dbb2d224c3a81bde,
         type: 3}
@@ -652,9 +680,9 @@ GameObject:
   - component: {fileID: 1710789850}
   - component: {fileID: 1710789849}
   - component: {fileID: 1710789848}
-  m_Layer: 0
-  m_Name: New Sprite
-  m_TagString: Untagged
+  m_Layer: 13
+  m_Name: TestGround
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -830,5 +858,5 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 466028981}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
