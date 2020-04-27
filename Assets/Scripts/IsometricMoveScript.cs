@@ -18,6 +18,7 @@ public class IsometricMoveScript : MonoBehaviour
     public bool playerIsCorner6;
     public bool playerIsCorner7;
     public bool playerIsCorner8;
+    public bool playerIsMonsterCam;
 
     public bool gameIsPaused = true;
 
@@ -161,6 +162,22 @@ public class IsometricMoveScript : MonoBehaviour
             playerIsCorner5 = false;
             playerIsCorner6 = false;
             playerIsCorner7 = false;
+        }
+
+        if (other.gameObject.CompareTag("Artifact")) {
+            //change to monster cam
+            playerIsMonsterCam = true;
+
+            playerIsCorner8 = false;
+            playerIsCorner2 = false;
+            playerIsCorner3 = false;
+            playerIsCorner1 = false;
+            playerIsCorner4 = false;
+            playerIsCorner5 = false;
+            playerIsCorner6 = false;
+            playerIsCorner7 = false;
+
+            gameIsPaused = true;
         }
     }
 }
