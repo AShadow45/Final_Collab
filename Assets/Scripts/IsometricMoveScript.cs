@@ -14,6 +14,12 @@ public class IsometricMoveScript : MonoBehaviour
     public bool playerIsCorner2;
     public bool playerIsCorner3;
     public bool playerIsCorner4;
+    public bool playerIsCorner5;
+    public bool playerIsCorner6;
+    public bool playerIsCorner7;
+    public bool playerIsCorner8;
+
+    public bool gameIsPaused = true;
 
     void Start()
     {
@@ -28,9 +34,12 @@ public class IsometricMoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKey)
+        if (!gameIsPaused)
         {
-            Move();
+            if (Input.anyKey)
+            {
+                Move();
+            }
         }
     }
 
@@ -55,6 +64,10 @@ public class IsometricMoveScript : MonoBehaviour
             playerIsCorner2 = false;
             playerIsCorner3 = false;
             playerIsCorner4 = false;
+            playerIsCorner5 = false;
+            playerIsCorner6 = false;
+            playerIsCorner7 = false;
+            playerIsCorner8 = false;
 
 
         } 
@@ -66,6 +79,10 @@ public class IsometricMoveScript : MonoBehaviour
             playerIsCorner1 = false;
             playerIsCorner3 = false;
             playerIsCorner4 = false;
+            playerIsCorner5 = false;
+            playerIsCorner6 = false;
+            playerIsCorner7 = false;
+            playerIsCorner8 = false;
         }
 
         if (other.gameObject.CompareTag("3")) {
@@ -75,6 +92,10 @@ public class IsometricMoveScript : MonoBehaviour
             playerIsCorner2 = false;
             playerIsCorner1 = false;
             playerIsCorner4 = false;
+            playerIsCorner5 = false;
+            playerIsCorner6 = false;
+            playerIsCorner7 = false;
+            playerIsCorner8 = false;
         }
 
         if (other.gameObject.CompareTag("4")) {
@@ -84,6 +105,62 @@ public class IsometricMoveScript : MonoBehaviour
             playerIsCorner2 = false;
             playerIsCorner3 = false;
             playerIsCorner1 = false;
+            playerIsCorner5 = false;
+            playerIsCorner6 = false;
+            playerIsCorner7 = false;
+            playerIsCorner8 = false;
+        }
+
+        if (other.gameObject.CompareTag("5")) {
+            Debug.Log("player is in 5");
+            playerIsCorner5 = true;
+
+            playerIsCorner2 = false;
+            playerIsCorner3 = false;
+            playerIsCorner1 = false;
+            playerIsCorner4 = false;
+            playerIsCorner6 = false;
+            playerIsCorner7 = false;
+            playerIsCorner8 = false;
+        }
+
+        if (other.gameObject.CompareTag("6")) {
+            Debug.Log("player is in 6");
+            playerIsCorner6 = true;
+
+            playerIsCorner2 = false;
+            playerIsCorner3 = false;
+            playerIsCorner1 = false;
+            playerIsCorner4 = false;
+            playerIsCorner5 = false;
+            playerIsCorner7 = false;
+            playerIsCorner8 = false;
+        }
+
+        if (other.gameObject.CompareTag("7")) {
+            Debug.Log("player is in 7");
+            playerIsCorner7 = true;
+
+            playerIsCorner2 = false;
+            playerIsCorner3 = false;
+            playerIsCorner1 = false;
+            playerIsCorner4 = false;
+            playerIsCorner5 = false;
+            playerIsCorner6 = false;
+            playerIsCorner8 = false;
+        }
+
+        if (other.gameObject.CompareTag("8")) {
+            Debug.Log("player is in 8");
+            playerIsCorner8 = true;
+
+            playerIsCorner2 = false;
+            playerIsCorner3 = false;
+            playerIsCorner1 = false;
+            playerIsCorner4 = false;
+            playerIsCorner5 = false;
+            playerIsCorner6 = false;
+            playerIsCorner7 = false;
         }
     }
 }
