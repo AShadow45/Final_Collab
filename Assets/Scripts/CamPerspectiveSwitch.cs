@@ -6,6 +6,8 @@ public class CamPerspectiveSwitch : MonoBehaviour
 {
     public IsometricMoveScript playerScript;
 
+    public GameObject endDialogue;
+
     public Camera cam1;
     public Camera cam2;
     public Camera cam3;
@@ -14,6 +16,7 @@ public class CamPerspectiveSwitch : MonoBehaviour
     public Camera cam6;
     public Camera cam7;
     public Camera cam8;
+    public Camera monsterCam;
 
     //moving to target
     /*
@@ -26,7 +29,7 @@ public class CamPerspectiveSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        endDialogue.SetActive(false);
     }
 
     // Update is called once per frame
@@ -125,6 +128,23 @@ public class CamPerspectiveSwitch : MonoBehaviour
             cam3.enabled = false;
             cam1.enabled = false;
 
+        }
+
+        if(playerScript.playerIsMonsterCam) {
+            //switch to monster cam
+            monsterCam.enabled = true;
+
+            cam8.enabled = false;
+            cam5.enabled = false;
+            cam6.enabled = false;
+            cam7.enabled = false;
+            cam4.enabled = false;
+            cam2.enabled = false;
+            cam3.enabled = false;
+            cam1.enabled = false;
+
+            //set dialogue active
+            endDialogue.SetActive(true);
         }
 
 

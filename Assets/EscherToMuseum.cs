@@ -5,38 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class EscherToMuseum : MonoBehaviour
 {
-    public GameObject whiteFade;
-    //public GameObject gameManager;
-
-
     public void LoadMuseum()
     {
         SceneManager.LoadScene("Museum");
 
     }
 
-    private void Start()
+    void Start()
     {
-        whiteFade.SetActive(false);
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-
-            StartCoroutine(WaitSecToMuseum());
-            whiteFade.SetActive(true);
-
-            Debug.Log("player has entered artifact");
-        }
+        //starts when object is set active
+        StartCoroutine(WaitSecToMuseum());
     }
 
     IEnumerator WaitSecToMuseum()
     {
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6);
         LoadMuseum();
 
     }
