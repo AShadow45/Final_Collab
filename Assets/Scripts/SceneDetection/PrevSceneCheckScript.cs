@@ -51,10 +51,13 @@ public class PrevSceneCheckScript : MonoBehaviour
             {
 
                 botanicalEffects.SetActive(false);
-            } else {
+            }
+            /*
+            else {
                 botanicalEffects.SetActive(true);
 
             }
+            */
         }        
         
         //if player was in dali scene, and prevNum = sceneNum, and player is back in museum
