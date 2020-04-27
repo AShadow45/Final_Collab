@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ReloadSaul : MonoBehaviour
 {
+    public Transform spawnPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,9 @@ public class ReloadSaul : MonoBehaviour
     {
         if(other.gameObject.tag == "Player"){
             Debug.Log("u ded");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            //spawn back at top
+            other.transform.position = spawnPoint.transform.position;
         }
     }
 }
