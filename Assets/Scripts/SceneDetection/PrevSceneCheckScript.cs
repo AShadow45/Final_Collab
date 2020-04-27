@@ -43,6 +43,18 @@ public class PrevSceneCheckScript : MonoBehaviour
         if (botanicalIndes.prevScene == 1 && botanicalIndes.prevScene == botanicalIndes.sceneNumber && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Museum")) {
             //have the effects appear
             botanicalEffects.SetActive(true);
+
+            //if the player is in other scenes turn it off
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Salvador Dahli") ||
+                SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MC Escher3") ||
+                SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Peter Saul"))
+            {
+
+                botanicalEffects.SetActive(false);
+            } else {
+                botanicalEffects.SetActive(true);
+
+            }
         }        
         
         //if player was in dali scene, and prevNum = sceneNum, and player is back in museum
