@@ -47,7 +47,7 @@ public class BotanicalIndestructableScript : MonoBehaviour
         }        
         
         //if the player is in botanical scene, sceneNum is 3
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MC Escher2")) {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MC Escher3")) {
             sceneNumber = 3;
 
             prevScene = sceneNumber;
