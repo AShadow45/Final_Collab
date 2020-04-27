@@ -71,6 +71,7 @@ public class ObjectClicker : MonoBehaviour
 
                         //show cursor
                         Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
                     }
                 }
 
@@ -92,6 +93,7 @@ public class ObjectClicker : MonoBehaviour
 
                         //show cursor
                         Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
                     }
                 }
 
@@ -113,6 +115,7 @@ public class ObjectClicker : MonoBehaviour
 
                         //show cursor
                         Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
                     }
                 }
 

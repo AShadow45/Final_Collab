@@ -33,8 +33,7 @@ public class DaliToMuseum : MonoBehaviour
     }
 
     IEnumerator WaitSecToMuseum() {
-            //saving to global so it doesn't get destroyed with scene
-        //gameManager.GetComponent<GameManagerDali>().saveData();
+
         yield return new WaitForSeconds(3f);
         LoadMuseum();
         

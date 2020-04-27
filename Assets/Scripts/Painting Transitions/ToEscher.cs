@@ -17,7 +17,7 @@ public class ToEscher : MonoBehaviour
     {
         if(other.tag == "Player"){
 
-            SceneManager.LoadScene("MC Escher2");
+            SceneManager.LoadScene("MC Escher3");
         }
         
     }

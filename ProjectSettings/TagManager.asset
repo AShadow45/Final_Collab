@@ -13,6 +13,11 @@ TagManager:
   - 2
   - 3
   - 4
+  - Ground
+  - 5
+  - 6
+  - 7
+  - 8
   layers:
   - Default
   - TransparentFX
@@ -27,8 +32,8 @@ TagManager:
   - Dahli
   - Escher
   - Saul
-  - 
-  - 
+  - SaulPlatform
+  - Tutorial
   - 
   - 
   - 
@@ -55,4 +60,7 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 1626083493
+    locked: 0
+  - name: Player
+    uniqueID: 358969309
     locked: 0
