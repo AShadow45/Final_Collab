@@ -28,7 +28,7 @@ public class TutorialObjectClicker : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         //monet
-        if (Physics.Raycast(ray, out hit, 100f, tutorial))
+        if (Physics.Raycast(ray, out hit, 20f, tutorial))
         {
             if (hit.transform != null)
             {

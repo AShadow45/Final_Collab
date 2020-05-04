@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ToDali : MonoBehaviour
 {
+    public GameObject Player;
     //public GameObject gameManager;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class ToDali : MonoBehaviour
             //DontDestroyOnLoad(other.gameObject);
 
             SceneManager.LoadScene("Salvador Dahli");
+            DontDestroyOnLoad(Player);
 
         }
     }

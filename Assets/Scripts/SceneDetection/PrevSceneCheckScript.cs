@@ -14,6 +14,10 @@ public class PrevSceneCheckScript : MonoBehaviour
     public GameObject daliEffects;
     public GameObject escherEffects;
     public GameObject saulEffects;
+    public GameObject dailyBlock;
+    public GameObject dailyCanvas;
+
+    public GameObject WinDoor;
 
     public bool botanicalIsUnlocked;
     public bool daliIsUnlocked;
@@ -122,6 +126,32 @@ public class PrevSceneCheckScript : MonoBehaviour
             saulEffects.SetActive(true);
             //save it, if this is true, the effects will be active in museum
             saulIsUnlocked = true;
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //if the player is in other scenes turn block off
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Biotanical") ||
+            SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Salvador Dahli") ||
+            SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MC Escher3") ||
+            SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Peter Saul"))
+        {
+            dailyBlock.SetActive(false);
+            dailyCanvas.SetActive(false);
+
+
+        }
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Museum"))
+        {
+            //block is active
+            dailyBlock.SetActive(true);
+
+        }
+
+        if (botanicalIsUnlocked && daliIsUnlocked && escherIsUnlocked && saulIsUnlocked)
+        {
+            dailyBlock.SetActive(false);
+            dailyCanvas.SetActive(true);
         }
     }
 }
