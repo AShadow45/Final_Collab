@@ -29,14 +29,20 @@ public class ObjectClicker : MonoBehaviour
         int dahli = 1 << 10;
         int escher = 1 << 11;
         int saul = 1 << 12;
+        int wall = 1 << 15;
 
         RaycastHit hit;
 
         //turn screenpoint to ray, from cam to mousePos based on camera direction
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+        //raycast on wall, doesn't pass through
+        if (Physics.Raycast(ray, out hit, 20f, wall)) {
+            Debug.Log("hit wall");
+        }
+
             //monet
-            if (Physics.Raycast(ray, out hit, 100f, monet))
+            if (Physics.Raycast(ray, out hit, 20f, monet))
             {
                 if (hit.transform != null)
                 {
@@ -58,7 +64,7 @@ public class ObjectClicker : MonoBehaviour
             }
 
             //dahli
-            if (Physics.Raycast(ray, out hit, 100f, dahli))
+            if (Physics.Raycast(ray, out hit, 20f, dahli))
             {
                 if (hit.transform != null)
                 {
@@ -80,7 +86,7 @@ public class ObjectClicker : MonoBehaviour
             }
 
             //escher
-            if (Physics.Raycast(ray, out hit, 100f, escher))
+            if (Physics.Raycast(ray, out hit, 20f, escher))
             {
                 if (hit.transform != null)
                 {
@@ -102,7 +108,7 @@ public class ObjectClicker : MonoBehaviour
             }
 
             //saul
-            if (Physics.Raycast(ray, out hit, 100f, saul))
+            if (Physics.Raycast(ray, out hit, 20f, saul))
             {
                 if (hit.transform != null)
                 {
