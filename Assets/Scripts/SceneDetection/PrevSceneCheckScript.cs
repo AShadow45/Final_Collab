@@ -15,6 +15,8 @@ public class PrevSceneCheckScript : MonoBehaviour
     public GameObject escherEffects;
     public GameObject saulEffects;
 
+    public GameObject WinDoor;
+
     public bool botanicalIsUnlocked;
     public bool daliIsUnlocked;
     public bool escherIsUnlocked;
@@ -122,6 +124,12 @@ public class PrevSceneCheckScript : MonoBehaviour
             saulEffects.SetActive(true);
             //save it, if this is true, the effects will be active in museum
             saulIsUnlocked = true;
+        }
+
+        if(botanicalIsUnlocked && daliIsUnlocked && escherIsUnlocked && saulIsUnlocked){
+            WinDoor.SetActive(true);
+        }else{
+            WinDoor.SetActive(false);
         }
     }
 }

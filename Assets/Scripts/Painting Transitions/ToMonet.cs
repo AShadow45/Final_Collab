@@ -21,7 +21,7 @@ public class ToMonet : MonoBehaviour
             //player stays in place in museum
             //DontDestroyOnLoad(other.gameObject);
             SceneManager.LoadScene("Biotanical");
-
+            //DontDestroyOnLoad(other.gameObject);
         }
         
     }

@@ -8,6 +8,8 @@ public class CrouchingScript : MonoBehaviour
     public WindScript windS;
     public StartDahli startDahli;
 
+    SpriteRenderer sr;
+
     Animator anim;
 
     public float moveSpeed;
@@ -30,6 +32,7 @@ public class CrouchingScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerFoot = GetComponent<AudioSource>();
+        sr = GetComponent<SpriteRenderer>();
 
         //player is mving from the start
         skullIsTalking = false;
@@ -45,11 +48,13 @@ public class CrouchingScript : MonoBehaviour
             {
                 windS.ae2D.forceMagnitude = windSlowSpeed;
                 anim.SetTrigger("Crouching");
+                sr.color = Color.gray;
             }
             else
             {
                 windS.ae2D.forceMagnitude = windSpeed;
                 //anim.SetTrigger("Idle");
+                sr.color = Color.white;
             }
 
         //moving controls
