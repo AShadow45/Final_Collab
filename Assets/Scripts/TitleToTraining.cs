@@ -9,4 +9,9 @@ public class TitleToTraining : MonoBehaviour
     public void toTutorial(){
         SceneManager.LoadScene("Tutorial");
     }
+
+    public void toQuit() {
+        Application.Quit();
+
+    }
 }

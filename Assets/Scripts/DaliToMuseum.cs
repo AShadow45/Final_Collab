@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class DaliToMuseum : MonoBehaviour
 {
     public GameObject whiteFade;
-    //public GameObject gameManager;
 
-  
+    private AudioSource audioS;
+
     public void LoadMuseum() {
         SceneManager.LoadScene("Museum");
         
@@ -17,18 +17,16 @@ public class DaliToMuseum : MonoBehaviour
     private void Start()
     {
         whiteFade.SetActive(false);
-        
+        audioS = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) {
-            //We found it...yay
-           //gameManager.GetComponent<GameManagerDali>().found();
+            audioS.Play();
+
             StartCoroutine(WaitSecToMuseum());
             whiteFade.SetActive(true);
-
-            //specify location in front of painting
         }
     }
 

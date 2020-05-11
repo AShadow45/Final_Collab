@@ -11,6 +11,8 @@ public class UnlockedInMuseumScript : MonoBehaviour
 
     public PrevSceneCheckScript prevS;
 
+    public ReturnToMuseumButton returnMan;
+
     // Start is called before the first frame update
     void Start()
     {

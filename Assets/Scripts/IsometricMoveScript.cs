@@ -24,6 +24,8 @@ public class IsometricMoveScript : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         forward = Camera.main.transform.forward;
         forward.y = 0;

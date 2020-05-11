@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove3D : MonoBehaviour
 {
@@ -12,13 +13,13 @@ public class PlayerMove3D : MonoBehaviour
     public CharacterController controller;
 
     public float speed = 12f;
-    // Start is called before the first frame update
-    // Update is called once per frame
 
     void Start()
     {
         audioS = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+
+
     }
 
     void Update()
@@ -44,4 +45,5 @@ public class PlayerMove3D : MonoBehaviour
         audioS.Play();
 
     }
+
 }

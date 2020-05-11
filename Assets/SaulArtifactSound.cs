@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToMonsterCam : MonoBehaviour
+public class SaulArtifactSound : MonoBehaviour
 {
     private AudioSource audioS;
 
@@ -18,11 +18,10 @@ public class ToMonsterCam : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player")) {
+        if (collision.gameObject.CompareTag("Player")) {
             audioS.Play();
-
         }
     }
 }

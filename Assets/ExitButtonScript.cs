@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DailyCanvasScript : MonoBehaviour
+public class ExitButtonScript : MonoBehaviour
 {
-    public static DailyCanvasScript instance = null;
+    public static ExitButtonScript instance = null;
 
     void Awake()
     {
@@ -21,5 +21,15 @@ public class DailyCanvasScript : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class MuseumButtonScript : MonoBehaviour
 {  
     public GameObject whiteFade;
-    //public GameObject gameManager;
 
-  
+    private AudioSource audioS;
+
     public void LoadMuseum() {
         SceneManager.LoadScene("Museum");
         
@@ -17,25 +17,23 @@ public class MuseumButtonScript : MonoBehaviour
     private void Start()
     {
         whiteFade.SetActive(false);
+        audioS = GetComponent<AudioSource>();
         
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) {
-            //We found it...yay
-           //gameManager.GetComponent<GameManagerMonet>().found();
+            audioS.Play();
             StartCoroutine(WaitSecToMuseum());
             whiteFade.SetActive(true);
 
-            //specify location in front of painting
         }
     }
 
     IEnumerator WaitSecToMuseum() {
-            //saving to global so it doesn't get destroyed with scene
-        //gameManager.GetComponent<GameManagerMonet>().saveData();
-        yield return new WaitForSeconds(3f);
+
+        yield return new WaitForSeconds(2.5f);
         LoadMuseum();
         
     }

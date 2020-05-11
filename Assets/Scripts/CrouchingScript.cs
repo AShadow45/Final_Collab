@@ -36,6 +36,9 @@ public class CrouchingScript : MonoBehaviour
 
         //player is mving from the start
         skullIsTalking = false;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     //Affect WindScript Area Effector Comp.

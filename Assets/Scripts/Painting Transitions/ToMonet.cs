@@ -5,24 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class ToMonet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //public GameObject gameManager;
+    public GameObject whiteF;
+    private AudioSource audioS;
+
     void Start()
     {
-        
+        audioS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
-            //will save state to global before scene transition
-            //gameManager.GetComponent<PlayerData>().SavetoGlobal();
-            //player stays in place in museum
-            //DontDestroyOnLoad(other.gameObject);
-            SceneManager.LoadScene("Biotanical");
-            //DontDestroyOnLoad(other.gameObject);
+            //white set active
+            whiteF.SetActive(true);
+
+            //play sound
+            audioS.Play();
+
+            //start to museum
+            StartCoroutine(WaitSecToMuseum());
+
         }
         
+    }
+
+    IEnumerator WaitSecToMuseum()
+    {
+
+        yield return new WaitForSeconds(1.7f);
+        SceneManager.LoadScene("Biotanical");
+
     }
 }

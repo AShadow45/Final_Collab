@@ -25,6 +25,9 @@ public float jumpForce;
     {
         anim = GetComponent<Animator>();
         audioS = GetComponent<AudioSource>();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame

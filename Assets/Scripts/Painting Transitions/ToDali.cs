@@ -5,26 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class ToDali : MonoBehaviour
 {
-    public GameObject Player;
-    //public GameObject gameManager;
-    // Start is called before the first frame update
+    public GameObject whiteF;
+    private AudioSource audioS;
+
     void Start()
     {
-        
+        audioS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
-            //will save state to global before scene transition
-            //gameManager.GetComponent<PlayerData>().SavetoGlobal();
-            //player stays in place in museum
-            //DontDestroyOnLoad(other.gameObject);
+            //white set active
+            whiteF.SetActive(true);
 
-            SceneManager.LoadScene("Salvador Dahli");
-            DontDestroyOnLoad(Player);
+            //play sound
+            audioS.Play();
+
+            //start to museum
+            StartCoroutine(WaitSecToMuseum());
 
         }
+    }
+
+    IEnumerator WaitSecToMuseum()
+    {
+
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Salvador Dahli");
+
     }
 }

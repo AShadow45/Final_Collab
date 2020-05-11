@@ -5,20 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class ToEscher : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //this is for Escher transition
+    public GameObject whiteF;
+    private AudioSource audioS;
+
     void Start()
     {
-        
+        audioS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
+            //white set active
+            whiteF.SetActive(true);
 
-            SceneManager.LoadScene("MC Escher3");
+            //play sound
+            audioS.Play();
+
+            //start to museum
+            StartCoroutine(WaitSecToMuseum());
         }
         
+    }
+
+    IEnumerator WaitSecToMuseum()
+    {
+
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("MC Escher3");
+
     }
 }

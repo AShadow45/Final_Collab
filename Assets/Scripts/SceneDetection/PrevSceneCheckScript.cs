@@ -19,6 +19,8 @@ public class PrevSceneCheckScript : MonoBehaviour
 
     public GameObject WinDoor;
 
+    public GameObject exitCanvas;
+
     public bool botanicalIsUnlocked;
     public bool daliIsUnlocked;
     public bool escherIsUnlocked;
@@ -138,20 +140,33 @@ public class PrevSceneCheckScript : MonoBehaviour
         {
             dailyBlock.SetActive(false);
             dailyCanvas.SetActive(false);
-
-
-        }
-        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Museum"))
+        } else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Museum"))
         {
             //block is active
             dailyBlock.SetActive(true);
 
         }
 
-        if (botanicalIsUnlocked && daliIsUnlocked && escherIsUnlocked && saulIsUnlocked)
+        if (botanicalIsUnlocked && daliIsUnlocked && escherIsUnlocked && saulIsUnlocked && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Museum"))
         {
             dailyBlock.SetActive(false);
             dailyCanvas.SetActive(true);
+        }
+        else {
+            dailyCanvas.SetActive(false);
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Biotanical") ||
+            SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Salvador Dahli") ||
+            SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MC Escher3") ||
+            SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Peter Saul"))
+        {
+            exitCanvas.SetActive(true);
+
+        } else {
+            exitCanvas.SetActive(false);
         }
     }
 }
